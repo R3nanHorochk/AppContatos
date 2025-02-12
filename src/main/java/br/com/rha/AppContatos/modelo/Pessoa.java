@@ -1,0 +1,102 @@
+package br.com.rha.AppContatos.modelo;
+
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name ="tb_pessoa")
+public class Pessoa {
+	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY	)
+	private Long id;
+	
+	@Column(name="nome",nullable = false,length=150)
+	private String nome;
+	
+	@Column(name="endereco", nullable=true, length=200)
+	private String Endereço;
+	
+	@Column(name="CEP", nullable=true, length=9)//ppodemos colocar outras como name=""
+	private Integer CEP;
+	
+	@Column(name="cidade", nullable=true, length=200)//ppodemos colocar outras como name=""
+	private String Cidade;
+	
+	@Column(name="uf", nullable=true, length=2)//ppodemos colocar outras como name=""
+	private String UF;
+	
+	public Pessoa() { }
+
+	public Pessoa(Long  id,String nome, String Endereço, Integer CEP, String Cidade ,String UF) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.Endereço = Endereço;
+		this.CEP = CEP;
+		this.Cidade = Cidade;
+		this.UF = UF;
+	}
+
+	
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEndereço() {
+		return Endereço;
+	}
+
+	public void setEndereço(String endereço) {
+		Endereço = endereço;
+	}
+
+	public Integer getCEP() {
+		return CEP;
+	}
+
+	public void setCEP(Integer cEP) {
+		CEP = cEP;
+	}
+
+	public String getCidade() {
+		return Cidade;
+	}
+
+	public void setCidade(String cidade) {
+		Cidade = cidade;
+	}
+
+	public String getUF(){
+		return UF;
+	}
+
+	public void setUF(String uF) {
+		UF = uF;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	@Override   
+	public String toString() {
+		
+		String retorno = "[" + " Nome: " + this.nome +
+				" - Endereço: " + this.Endereço + 
+				" - CEP: " + this.CEP + 
+				" - Cidade: " + this.Cidade +
+				" - UF: " + this.UF +
+				" ]";
+		return retorno;
+	}
+}
