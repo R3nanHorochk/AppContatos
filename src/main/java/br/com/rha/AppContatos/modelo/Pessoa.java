@@ -1,6 +1,8 @@
 package br.com.rha.AppContatos.modelo;
 
 
+import java.util.Objects;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,16 +21,16 @@ public class Pessoa {
 	private String nome;
 	
 	@Column(name="endereco", nullable=true, length=200)
-	private String Endereço;
+	private  String Endereço;
 	
 	@Column(name="CEP", nullable=true, length=9)//ppodemos colocar outras como name=""
-	private Integer CEP;
+	private  Integer CEP;
 	
 	@Column(name="cidade", nullable=true, length=200)//ppodemos colocar outras como name=""
-	private String Cidade;
+	private   String Cidade;
 	
 	@Column(name="uf", nullable=true, length=2)//ppodemos colocar outras como name=""
-	private String UF;
+	private   String UF;
 	
 	public Pessoa() { }
 
@@ -99,4 +101,25 @@ public class Pessoa {
 				" ]";
 		return retorno;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(CEP, Cidade, Endereço, UF, id, nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pessoa other = (Pessoa) obj;
+		return Objects.equals(CEP, other.CEP) && Objects.equals(Cidade, other.Cidade)
+				&& Objects.equals(Endereço, other.Endereço) && Objects.equals(UF, other.UF)
+				&& Objects.equals(id, other.id) && Objects.equals(nome, other.nome);
+	}
+	
+	
 }

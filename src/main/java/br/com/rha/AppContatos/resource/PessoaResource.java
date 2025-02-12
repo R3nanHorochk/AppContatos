@@ -22,14 +22,14 @@ import br.com.rha.AppContatos.service.PessoaService;
 
 
 @RestController
-@RequestMapping("/pessoa") 
+@RequestMapping("/api/pessoas") 
 public class PessoaResource {
 	
 	@Autowired
 	private PessoaService pessoaService;
 	
 
-	@PostMapping // POST http://localhost:8080/pessoa
+	@PostMapping // POST http://localhost:8080/api/pessoa
 	public ResponseEntity<Pessoa> save(@RequestBody Pessoa pessoa) {
 		Pessoa newPessoa = pessoaService.save(pessoa);
 		if(newPessoa == null) {
@@ -39,7 +39,7 @@ public class PessoaResource {
 		}
 	}
 	
-	@GetMapping("/fId/{id}") // READ http://localhost:8080/pessoa
+	@GetMapping("/{id}") // READ http://localhost:8080/api/pessoa/fId/{id}
 	public ResponseEntity<Optional<Pessoa>> findById(@PathVariable Long id) {
 		Optional<Pessoa> pessoa = pessoaService.findById(id);
 		if(pessoa.isEmpty()) {
@@ -49,7 +49,7 @@ public class PessoaResource {
 		}
 	}
 	
-	@GetMapping("/fNo/{nome}") // READ http://localhost:8080/pessoa 
+	@GetMapping("/fNo/{nome}") // READ http://localhost:8080/api/pessoa/fNo/{nome}
 	public ResponseEntity<Optional<Pessoa>> findBynome(@PathVariable String nome) {
 		Optional<Pessoa> pessoa = pessoaService.findBynome(nome);
 		if(pessoa.isEmpty()) {
@@ -59,7 +59,7 @@ public class PessoaResource {
 		}
 	}
 	
-	@GetMapping // READ http://localhost:8080/pessoa 
+	@GetMapping // READ http://localhost:8080/api/pessoa/ 
 	public ResponseEntity<List<Pessoa>> findAll() {
 		List<Pessoa> pessoas = pessoaService.findAll();
 		if(pessoas == null) {
@@ -71,7 +71,7 @@ public class PessoaResource {
 		}
 	}
 	
-	@PutMapping // PUT http://localhost:8080/pessoa
+	@PutMapping("/{id}") // PUT http://localhost:8080/api/pessoa/
 	public ResponseEntity<Pessoa> update(@RequestBody Pessoa pessoa) {
 		Pessoa updPessoa = pessoaService.update(pessoa);
 		if(updPessoa == null) {
@@ -82,7 +82,7 @@ public class PessoaResource {
 	}
 	
 	
-	@DeleteMapping("/{id}")  // PUT http://localhost:8080/pessoa/id
+	@DeleteMapping("/{id}")  // PUT http://localhost:8080/api/pessoa/id
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		pessoaService.delete(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);

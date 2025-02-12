@@ -11,4 +11,5 @@ import br.com.rha.AppContatos.modelo.Pessoa;
 @Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 	Optional<Pessoa> findBynome(String nome);
+	Optional<Pessoa> findBymala(String nome);
 }

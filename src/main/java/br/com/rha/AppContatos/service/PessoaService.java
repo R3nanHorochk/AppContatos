@@ -54,6 +54,15 @@ public class PessoaService {
 		}
 	}
 	
+	public Optional<Pessoa> findbymala(Long id){
+		if(id == null) {
+			System.out.println("id errado");
+			return null;
+		}else {
+			pessoaRepository.findById(id);
+		}
+	}
+	
 	//CRUD UPDATE
 	public Pessoa update(Pessoa pessoa) {
 		//regra de negocio
