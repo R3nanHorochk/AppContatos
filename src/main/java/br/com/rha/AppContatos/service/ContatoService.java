@@ -12,7 +12,7 @@ import br.com.rha.AppContatos.modelo.Pessoa;
 import br.com.rha.AppContatos.repository.ContatoRepository;
 import br.com.rha.AppContatos.repository.PessoaRepository;
 
-
+@Service
 public class ContatoService {
 	
 	@Autowired

@@ -21,9 +21,9 @@ public class Pessoa {
 	private String nome;
 	
 	@Column(name="endereco", nullable=true, length=200)
-	private  String Endereço;
+	private  String endereco;
 	
-	@Column(name="CEP", nullable=true, length=9)//ppodemos colocar outras como name=""
+	@Column(name="cep", nullable=true, length=9)//ppodemos colocar outras como name=""
 	private  Integer CEP;
 	
 	@Column(name="cidade", nullable=true, length=200)//ppodemos colocar outras como name=""
@@ -34,11 +34,11 @@ public class Pessoa {
 	
 	public Pessoa() { }
 
-	public Pessoa(Long  id,String nome, String Endereço, Integer CEP, String Cidade ,String UF) {
+	public Pessoa(Long  id,String nome, String endereco, Integer CEP, String Cidade ,String UF) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.Endereço = Endereço;
+		this.endereco = endereco;
 		this.CEP = CEP;
 		this.Cidade = Cidade;
 		this.UF = UF;
@@ -54,12 +54,12 @@ public class Pessoa {
 		this.nome = nome;
 	}
 
-	public String getEndereço() {
-		return Endereço;
+	public String getEndereco() {
+		return endereco;
 	}
 
-	public void setEndereço(String endereço) {
-		Endereço = endereço;
+	public void setendereco(String endereço) {
+		endereco = endereço;
 	}
 
 	public Integer getCEP() {
@@ -94,7 +94,7 @@ public class Pessoa {
 	public String toString() {
 		
 		String retorno = "[" + " Nome: " + this.nome +
-				" - Endereço: " + this.Endereço + 
+				" - Endereço: " + this.endereco + 
 				" - CEP: " + this.CEP + 
 				" - Cidade: " + this.Cidade +
 				" - UF: " + this.UF +
@@ -104,7 +104,7 @@ public class Pessoa {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(CEP, Cidade, Endereço, UF, id, nome);
+		return Objects.hash(CEP, Cidade, endereco, UF, id, nome);
 	}
 
 	@Override
@@ -117,7 +117,7 @@ public class Pessoa {
 			return false;
 		Pessoa other = (Pessoa) obj;
 		return Objects.equals(CEP, other.CEP) && Objects.equals(Cidade, other.Cidade)
-				&& Objects.equals(Endereço, other.Endereço) && Objects.equals(UF, other.UF)
+				&& Objects.equals(endereco, other.endereco) && Objects.equals(UF, other.UF)
 				&& Objects.equals(id, other.id) && Objects.equals(nome, other.nome);
 	}
 	

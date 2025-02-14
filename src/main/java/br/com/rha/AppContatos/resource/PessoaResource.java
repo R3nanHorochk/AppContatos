@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.rha.AppContatos.Records.PessoaRecord;
 import br.com.rha.AppContatos.modelo.Pessoa;
+import br.com.rha.AppContatos.repository.PessoaRepository;
 import br.com.rha.AppContatos.service.PessoaService;
 
 
@@ -28,8 +30,11 @@ public class PessoaResource {
 	@Autowired
 	private PessoaService pessoaService;
 	
+	@Autowired
+	private PessoaRepository pessoaRepository;
+	
 
-	@PostMapping // POST http://localhost:8080/api/pessoa
+	@PostMapping // POST http://localhost:8080/api/pessoas
 	public ResponseEntity<Pessoa> save(@RequestBody Pessoa pessoa) {
 		Pessoa newPessoa = pessoaService.save(pessoa);
 		if(newPessoa == null) {
@@ -39,7 +44,7 @@ public class PessoaResource {
 		}
 	}
 	
-	@GetMapping("/{id}") // READ http://localhost:8080/api/pessoa/fId/{id}
+	@GetMapping("/{id}") // READ http://localhost:8080/api/pessoas/fId/{id}
 	public ResponseEntity<Optional<Pessoa>> findById(@PathVariable Long id) {
 		Optional<Pessoa> pessoa = pessoaService.findById(id);
 		if(pessoa.isEmpty()) {
@@ -49,7 +54,7 @@ public class PessoaResource {
 		}
 	}
 	
-	@GetMapping("/fNo/{nome}") // READ http://localhost:8080/api/pessoa/fNo/{nome}
+	@GetMapping("/fNo/{nome}") // READ http://localhost:8080/api/pessoas/fNo/{nome}
 	public ResponseEntity<Optional<Pessoa>> findBynome(@PathVariable String nome) {
 		Optional<Pessoa> pessoa = pessoaService.findBynome(nome);
 		if(pessoa.isEmpty()) {
@@ -59,7 +64,7 @@ public class PessoaResource {
 		}
 	}
 	
-	@GetMapping // READ http://localhost:8080/api/pessoa/ 
+	@GetMapping // READ http://localhost:8080/api/pessoas/ 
 	public ResponseEntity<List<Pessoa>> findAll() {
 		List<Pessoa> pessoas = pessoaService.findAll();
 		if(pessoas == null) {
@@ -71,7 +76,19 @@ public class PessoaResource {
 		}
 	}
 	
-	@PutMapping("/{id}") // PUT http://localhost:8080/api/pessoa/
+	@GetMapping("/mala/{id}") // READ http://localhost:8080/api/pessoa/mala/{id}
+    public ResponseEntity<PessoaRecord> findbyIdmala(@PathVariable Long id) {
+		Optional<Pessoa> pessoa = pessoaRepository.findById(id);
+		if(pessoa == null) {
+            return ResponseEntity.badRequest().build();
+        }else {
+        String mala = pessoa.get().getEndereco() + " - " + pessoa.get().getCEP() + " - " + pessoa.get().getCidade() +"/" + pessoa.get().getUF() ;
+        PessoaRecord record = new PessoaRecord(pessoa.get().getId(),pessoa.get().getNome() ,mala);
+            return ResponseEntity.ok(record);
+        }
+    }
+	
+	@PutMapping("/{id}") // PUT http://localhost:8080/api/pessoas/
 	public ResponseEntity<Pessoa> update(@RequestBody Pessoa pessoa) {
 		Pessoa updPessoa = pessoaService.update(pessoa);
 		if(updPessoa == null) {
@@ -82,7 +99,7 @@ public class PessoaResource {
 	}
 	
 	
-	@DeleteMapping("/{id}")  // PUT http://localhost:8080/api/pessoa/id
+	@DeleteMapping("/{id}")  // PUT http://localhost:8080/api/pessoas/id
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		pessoaService.delete(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);

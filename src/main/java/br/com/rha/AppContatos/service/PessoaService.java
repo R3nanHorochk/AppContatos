@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.rha.AppContatos.Records.PessoaRecord;
 import br.com.rha.AppContatos.modelo.Pessoa;
 import br.com.rha.AppContatos.repository.PessoaRepository;
 
@@ -53,16 +54,19 @@ public class PessoaService {
 		return pessoaRepository.findBynome(nome);
 		}
 	}
-	
-	public Optional<Pessoa> findbymala(Long id){
-		if(id == null) {
-			System.out.println("id errado");
-			return null;
-		}else {
-			pessoaRepository.findById(id);
-		}
-	}
-	
+	/*
+	public PessoaRecord findbyIdmala(Long id){
+        if(id == null) {
+            System.out.println("id errado");
+            return null;
+        }else {
+            Optional<Pessoa> pessoa = pessoaRepository.findById(id);
+            String mala = pessoa.get().getEndereco() + " - " + pessoa.get().getCEP() + " - " + pessoa.get().getCidade() +"/" + pessoa.get().getUF() ;
+            PessoaRecord record = new PessoaRecord(pessoa.get().getId(),pessoa.get().getNome() ,mala);
+            return(record);
+        }
+    }
+	*/
 	//CRUD UPDATE
 	public Pessoa update(Pessoa pessoa) {
 		//regra de negocio
@@ -76,7 +80,7 @@ public class PessoaService {
 			Pessoa updPessoa = findPessoa.get(); //setId
 			updPessoa.setNome(pessoa.getNome());
 			updPessoa.setCidade(pessoa.getCidade());
-			updPessoa.setEndereço(pessoa.getEndereço());
+			updPessoa.setendereco(pessoa.getEndereco());
 			updPessoa.setCEP(pessoa.getCEP());
 			updPessoa.setUF(pessoa.getUF());
 			return pessoaRepository.save(updPessoa); //Update
