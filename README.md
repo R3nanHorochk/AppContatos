@@ -1,6 +1,9 @@
 # AvaliacaoJava
 Spring: API Rest para Controle de Contatos 
 <br/>
+**INFORMAÇÕES IMPORTANTES :**  <br/>
+Para contato temos 5 opções:
+0-
 1-Como utilizar:
 <br/>
 Para utilizar devemos ter uma IDE para rodar o programa como eclipse,Intellij e etc, após isso entramos no  projeto e Rodamos a aplicação:
