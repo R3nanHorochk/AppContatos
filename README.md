@@ -92,23 +92,33 @@ com isso utilizamos os endpoints criados:
 <br/>
  **POST**(Insere um contato para uma pessoa ) - http://localhost:8080/api/contato <br/> Assim como o de pessoa, clicamos em body e após isso em raw e adicionamos os campos e os dados a serem inseridos para todos os casos usamos o send para enviar
  <br/>
+ 
  ![image](https://github.com/user-attachments/assets/ad16e57d-deb2-4ef8-bb5d-83d42c04122d)
+ 
  <br/>
  **GET**(Retorna um contato pelo seu id) -  http://localhost:8080/api/contato/{id}<br/> apenas adicionamos o id no final do endpoint no lugar de {id} a ser pesquisado 
  <br/>
+ 
  ![image](https://github.com/user-attachments/assets/966c96d4-c8c5-4d21-b89d-b0cfc8fc9c90)
+ 
  <br/>
  **GET**(Retorna todos contato pelo id de uma pessoa ) - http://localhost:8080/api/contato/pessoa/2 <br/> apenas adicionamos o id da pessoa no final do endpoint no lugar de {id} a ser pesquisado e então teremos todos contatos de uma pessoa 
  <br/>
+ 
  ![image](https://github.com/user-attachments/assets/1a95269a-b002-4a8c-9322-449016bade49)
+ 
  <br/>
  **PUT**(Atualiza um contato pelo seu id ) - http://localhost:8080/api/contato/{id}<br/>  apenas adicionamos o id no final do endpoint no lugar de {id} a ser atualizado e clicamos em body e depois em raw e adicionamos os dados a serem utilizados
  <br/>
+ 
  ![image](https://github.com/user-attachments/assets/96a86470-70dc-480d-bb34-53f0b21d7322)
+ 
  <br/>
  **DELETE**(Deleta um contato pelo seu id ) - http://localhost:8080/api/contato/{id}<br/> apenas adicionamos o id no final do endpoint no lugar de {id} a ser deletado e enviamos e assim ele está deletado
  <br/>
+ 
  ![image](https://github.com/user-attachments/assets/cb250c5e-2dd2-4798-99e0-97f73d08ba94)
+ 
  <br/>
 
 **1.2.2-Swagger-ui:**  <br/>
