@@ -17,16 +17,16 @@ public class Pessoa {
 	@GeneratedValue( strategy = GenerationType.IDENTITY	)
 	private Long id;
 	
-	@Column(name="nome",nullable = false,length=150)
+	@Column(name="nome",nullable = false)
 	private String nome;
 	
-	@Column(name="endereco", nullable=true, length=200)
+	@Column(name="endereco", nullable=true)
 	private  String endereco;
 	
-	@Column(name="cep", nullable=true, length=9)//ppodemos colocar outras como name=""
-	private  Integer CEP;
+	@Column(name="cep", nullable=true, length=8)//ppodemos colocar outras como name=""
+	private  String CEP;
 	
-	@Column(name="cidade", nullable=true, length=200)//ppodemos colocar outras como name=""
+	@Column(name="cidade", nullable=true)//ppodemos colocar outras como name=""
 	private   String Cidade;
 	
 	@Column(name="uf", nullable=true, length=2)//ppodemos colocar outras como name=""

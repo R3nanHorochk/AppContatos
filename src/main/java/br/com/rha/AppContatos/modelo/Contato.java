@@ -19,7 +19,7 @@ public class Contato {
 	@GeneratedValue( strategy = GenerationType.IDENTITY	)
 	private Long id;
 	
-	@Column(name="tipoContato",nullable = false,length=150)
+	@Column(name="tipoContato",nullable = false)
 	private TipoContatoEnum tipoContato;
 	
 	@Column(name="contato", nullable=true)
