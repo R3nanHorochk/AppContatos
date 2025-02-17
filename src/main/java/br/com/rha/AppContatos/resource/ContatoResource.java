@@ -48,9 +48,17 @@ public class ContatoResource {
 		}
 	}
 	
+	@GetMapping("/Pessoa/{id}") // READ http://localhost:8080/api/contato/Pessoa/{id}
+	public ResponseEntity<List<Contato>> findAllIdpessoa(@PathVariable Long id) {
+        List<Contato> contatos = contatoService.findAllIdpessoa(id);
+        if (contatos.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(contatos);
+    }
 	
 	
-	@GetMapping // READ http://localhost:8080/api/contato/
+	@GetMapping // READ http://localhost:8080/api/contato
 	public ResponseEntity<List<Contato>> acharTodos() {
 		List<Contato> findContato = contatoService.acharTodos();
 		if(findContato == null) {
@@ -62,7 +70,7 @@ public class ContatoResource {
 		}
 	}
 	
-	@PutMapping
+	@PutMapping("/{id}") // update http://localhost:8080/api/contato/{id}
 	public ResponseEntity<Contato> update(@RequestBody Contato contato) {
 		Contato updContato= contatoService.update(contato);
 		if(updContato == null) {
@@ -73,7 +81,7 @@ public class ContatoResource {
 	}
 	
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{id}") // delete http://localhost:8080/api/contato/{id}
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		contatoService.delete(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);

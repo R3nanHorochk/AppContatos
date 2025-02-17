@@ -34,7 +34,7 @@ public class ContatoService {
 				return contatoRepository.save(contato);
 			}
 		}else {
-			System.out.println("Pessoa não existe");
+			System.out.println("Pessoa não pesquisada");
 			return null;
 		}
 	}
@@ -54,6 +54,9 @@ public class ContatoService {
 		return contatoRepository.findById(id);
 	}
 	
+	public List<Contato> findAllIdpessoa(Long id) {
+        return contatoRepository.findAllIdpessoa(id);
+    }
 	//CRUD Update
 	
 	public Contato update(Contato contato) {

@@ -1,6 +1,7 @@
 package br.com.rha.AppContatos.modelo;
 
 
+import br.com.rha.AppContatos.Enum.TipoContatoEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,9 +20,9 @@ public class Contato {
 	private Long id;
 	
 	@Column(name="tipoContato",nullable = false,length=150)
-	private Integer tipoContato;
+	private TipoContatoEnum tipoContato;
 	
-	@Column(name="contato", nullable=true, length=200)
+	@Column(name="contato", nullable=true)
 	private String contato ;
 	
 	@ManyToOne
@@ -30,7 +31,7 @@ public class Contato {
 	
 	public Contato() { }
 
-	public Contato(Long  id,Integer tipoContato, String contato,Pessoa pessoa) {
+	public Contato(Long  id,TipoContatoEnum tipoContato, String contato,Pessoa pessoa) {
 
 		this.id = id;
 		this.tipoContato = tipoContato;
@@ -38,11 +39,11 @@ public class Contato {
 		this.pessoa = pessoa;
 	}
 
-	public Integer getTipoContato() {
+	public TipoContatoEnum getTipoContato() {
 		return tipoContato;
 	}
 
-	public void setTipoContato(Integer tipoContato) {
+	public void setTipoContato(TipoContatoEnum tipoContato) {
 		this.tipoContato = tipoContato;
 	}
 
