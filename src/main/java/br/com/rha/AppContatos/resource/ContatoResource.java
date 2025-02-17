@@ -48,7 +48,7 @@ public class ContatoResource {
 		}
 	}
 	
-	@GetMapping("/Pessoa/{id}") // READ http://localhost:8080/api/contato/Pessoa/{id}
+	@GetMapping("/pessoa/{id}") // READ http://localhost:8080/api/contato/Pessoa/{id}
 	public ResponseEntity<List<Contato>> findAllIdpessoa(@PathVariable Long id) {
         List<Contato> contatos = contatoService.findAllIdpessoa(id);
         if (contatos.isEmpty()) {

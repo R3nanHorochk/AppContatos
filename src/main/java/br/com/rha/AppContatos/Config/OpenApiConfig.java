@@ -16,10 +16,10 @@ public class OpenApiConfig {
                 .components(new Components().addSecuritySchemes("basicScheme",
                         new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
                 .info(new Info()
-                        .title("Título API")
-                        .description("Descrição API")
-                        .contact(new Contact().name("Nome").email("Email").url("URL"))
-                        .version("Versão API"));
+                        .title("API de contatos")
+                        .description("API de contatos para JP2025")
+                        .contact(new Contact().name("Renan").email("renanhorochkdeandrade@gmail.com").url("https://www.linkedin.com/in/renan-horochk-de-andrade-943173329/"))
+                        .version("Versão API 1"));
     }
 }
 

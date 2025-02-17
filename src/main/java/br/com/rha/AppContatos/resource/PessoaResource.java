@@ -76,7 +76,7 @@ public class PessoaResource {
 		}
 	}
 	
-	@GetMapping("/mala/{id}") // READ http://localhost:8080/api/pessoa/mala/{id}
+	@GetMapping("/maladireta/{id}") // READ http://localhost:8080/api/pessoa/mala/{id}
     public ResponseEntity<PessoaRecord> findbyIdmala(@PathVariable Long id) {
 		Optional<Pessoa> pessoa = pessoaRepository.findById(id);
 		if(pessoa == null) {
