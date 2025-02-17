@@ -120,7 +120,7 @@ Nisso temos dois resouces para utilizarmos sendo os endpoint de contato e pessoa
 
 
 <br/>
-**GET**(Retorna uma pessoa pelo seu id) - /api/pessoas/{id} <br/> acessmos o site e vamos a opção de get by id
+**GET**(Retorna uma pessoa pelo seu id) - /api/pessoas/{id} <br/> acessmos o site e vamos a opção de get by id <br/>
 ![image](https://github.com/user-attachments/assets/c22c0ef3-14f2-4361-aabe-755fa55697f0)
 <br/> apos isso clicamos em try it out e adicionamos o parametro(id) e clicamos em execute
 ![image](https://github.com/user-attachments/assets/813a0fe2-e90a-4c9c-93c8-df2ae7693803)
