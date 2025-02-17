@@ -34,7 +34,7 @@ public class Pessoa {
 	
 	public Pessoa() { }
 
-	public Pessoa(Long  id,String nome, String endereco, Integer CEP, String Cidade ,String UF) {
+	public Pessoa(Long  id,String nome, String endereco, String CEP, String Cidade ,String UF) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -62,11 +62,11 @@ public class Pessoa {
 		endereco = endereço;
 	}
 
-	public Integer getCEP() {
+	public String getCEP() {
 		return CEP;
 	}
 
-	public void setCEP(Integer cEP) {
+	public void setCEP(String cEP) {
 		CEP = cEP;
 	}
 
