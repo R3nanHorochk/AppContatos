@@ -1,11 +1,11 @@
 package br.com.rha.AppContatos.Enum;
 
 public enum TipoContatoEnum {
-	TELEFONE(1),
-	EMAIL(2),
-	DISCORD(3),
-	TEAMS(4),
-	INSTAGRAM(5);
+	TELEFONE(0),
+	EMAIL(1),
+	DISCORD(2),
+	TEAMS(3),
+	INSTAGRAM(4);
 	
 	public final int tipoValor;
 
