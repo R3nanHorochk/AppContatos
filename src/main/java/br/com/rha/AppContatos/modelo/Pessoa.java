@@ -23,13 +23,13 @@ public class Pessoa {
 	@Column(name="endereco", nullable=true)
 	private  String endereco;
 	
-	@Column(name="cep", nullable=true, length=8)//ppodemos colocar outras como name=""
+	@Column(name="cep", nullable=true, length=9)//ppodemos colocar outras como name=""
 	private  String CEP;
 	
 	@Column(name="cidade", nullable=true)//ppodemos colocar outras como name=""
 	private   String Cidade;
 	
-	@Column(name="uf", nullable=true, length=2)//ppodemos colocar outras como name=""
+	@Column(name="uf", nullable=true, length=3)//ppodemos colocar outras como name=""
 	private   String UF;
 	
 	public Pessoa() { }
